@@ -165,9 +165,9 @@ firstName.length > 7 ? console.log('Your name is long') : console.log('Your name
 
     let date = new Date();
     
-    let YYYMMDD = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
-    let DDMMYYYY = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
-    let DdMmYYYy = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+    let YYYMMDD = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    let DDMMYYYY = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    let DdMmYYYy = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
     console.log(YYYMMDD);
     console.log(DDMMYYYY);
