@@ -136,16 +136,39 @@ firstName.length > 7 ? console.log('Your name is long') : console.log('Your name
     You are 25. You are old enough to drive <br><br>
     Enter birth year: 2005 <br>
     You are 15. You will be allowed to drive after 3 years. */
+
+    /* Uncomment this when you need to use it
+
     let bornYear = Number(prompt("What year were you born? please"));
     let currentYear = Number(prompt("What year is at the moment?"));
     let age = currentYear - bornYear;
 
-    age >= 18 ? console.log(`You are ${age} years old. You are old enough to drive`) : console.log(`You are ${age} years old. You will be allowed to drive after ${18-age} years if you get the driver license.`);
+    age >= 18 ? console.log(`You are ${age} years old. You are old enough to drive`) : console.log(`You are ${age} years old. You will be allowed to drive after ${18-age} years if you get the driver license.`);  */
 
 // 14. Write a script that prompt the user to enter number of years. Calculate the number of seconds a person can live. Assume some one lives just hundred years
     /* Enter number of yours you live: 100 <br>
     You lived 3153600000 seconds. */
+
+    /* Uncomment this when you need to use it
+
+    alert('I´m going to tell you the number of seconds you have lived or you can still live');
+    let years = Number(prompt('How many years do you want to convert into seconds?', '100'));
+    // seconds of a year: year * 12 months * 30 days * 24 hours * 60 minutes * 60 seconds
+    let seconds = years * 12 * 30 * 24 * 60 * 60;
+
+    years < 100  ? console.log(`There are ${seconds} seconds in ${years} years`) : console.log(`Who wants to live forever? Enjoy your life. There are ${seconds} seconds in ${years} years, that´s a lot of time`);  */
+
 // 15. Create a human readable time format using the Date time object
     /* YYYY-MM-DD HH:mm
     DD-MM-YYYY HH:mm
     DD/MM/YYYY HH:mm */
+
+    let date = new Date();
+    
+    let YYYMMDD = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+    let DDMMYYYY = `${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+    let DdMmYYYy = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()} ${date.getHours()}-${date.getMinutes()}-${date.getSeconds()}`;
+
+    console.log(YYYMMDD);
+    console.log(DDMMYYYY);
+    console.log(DdMmYYYy);
