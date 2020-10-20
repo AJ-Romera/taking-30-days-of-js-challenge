@@ -315,3 +315,65 @@ let fullStack = frontEnd.concat(backEnd);
 
 console.log(fullStack);
 */
+
+
+// Exercises: Level 3
+
+// 1. The following is an array of 10 students ages:
+
+/* const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+
+* Sort the array and find the min and max age
+* Find the median age(one middle item or two middle items divided by two)
+* Find the average age(all items divided by number of items)
+* Find the range of the ages(max minus min)
+* Compare the value of (min - average) and (max - average), use abs() method */
+
+const ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24];
+
+console.log(ages.sort());
+let minAge = ages[0];
+let maxAge = ages[ages.length - 1];
+
+console.log(`The minimum age is ${minAge} while the maximum age is ${maxAge}`);
+
+let medianAge = ages[Math.floor(ages.length / 2)]; // or maybe Math.round, Math.ceil, for me Math.floor is better in this case
+console.log(medianAge);
+
+// The average age can be calculated with a for loop, but we haven´t reach that part in the challenge, so...
+
+let averageAge = parseFloat((ages[0] + ages[1] + ages[2] + ages[3] + ages[4] + ages[5] + ages[6] + ages[7] + ages[8] + ages[9]) / ages.length);
+console.log(averageAge);
+
+let range = maxAge - minAge;
+console.log(range);
+
+let minMinusAvg = Math.abs(minAge - averageAge);
+let maxMinusAvg = Math.abs(maxAge - averageAge);
+console.log(minMinusAvg); // 3.8, because with abs we get the absolute value wich is the value without regard to whether it is positive or negative. Without abs it has a negative value (-3.8).
+console.log(maxMinusAvg); // 3.2
+console.log(minMinusAvg<maxMinusAvg); // false, 3.8 > 3.2, but if they were not absolute it would be true, -3.8 < 3.2
+
+// 2. Slice the first ten countries from the countries array
+console.log(countries.slice(0, 10));
+
+// 3. Find the middle country(ies) in the countries array
+console.log(`${countries[parseInt(countries.length/2)]} is the middle country of the country array.`);
+
+// 4. Divide the countries array into two equal arrays if it is even. If countries array is not even , one more country for the first half.
+
+switch (countries.length % 2) {
+    case 0:
+        console.log('Number of countries is even, dividing the countries array into two equal arrays');
+        console.log(countries.slice(0, parseInt(countries.length/2)));
+        console.log(countries.slice(parseInt(countries.length/2)));
+        break;
+    case 1:
+        console.log('Number of countries is odd, dividing the countries array into two arrays, but the first array will have one more country than the second array');
+        console.log(countries.slice(0, parseInt(countries.length/2 + 1))); // 97 countries
+        console.log(countries.slice(parseInt(countries.length/2 + 1))); // 96 countries
+        break;
+    default:
+        console.log('Something went wrong, try again later please');
+        break;
+}
