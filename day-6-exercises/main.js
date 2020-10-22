@@ -195,21 +195,63 @@ console.log(`The sum of all numbers from 0 to 100 is ${sum}.`);
 
 // 11. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds.
 // The sum of all evens from 0 to 100 is 2550. And the sum of all odds from 0 to 100 is 2500.
-
+/*
 let even = 0;
+let odd = 0;
 for (let i = 0; i <= 100; i++) {
     if (i % 2 == 0) {
         even += i;
+    } else if (i % 2 !== 0) {
+        odd += i;
     }
 }
-console.log(`The sum of all evens from 0 to 100 is ${even}.`);
+console.log(`The sum of all evens from 0 to 100 is ${even}. And the sum of all odds from 0 to 100 is ${odd}.`);
+*/
 
 // 12. Use for loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds. Print sum of evens and sum of odds as array
 // [2550, 2500]
+/*
+let sumEvensOdds = [0, 0];
+for (let i = 0; i <= 100; i++) {
+    if (i % 2 == 0) {
+        sumEvensOdds[0] += i;
+    } else if (i % 2 !== 0) {
+        sumEvensOdds[1] += i;
+    }
+}
+console.log(sumEvensOdds);
+*/
 
 // 13. Develop a small script which generate array of 5 random numbers
+/*
+let arr = [];
+for (let i = 0; i < 5; i++) {
+    arr.push(Math.round(Math.random()*10)); // Random numbers from 0 to 10
+}
+console.log(arr);
+*/
 
 // 14. Develop a small script which generate array of 5 random numbers and the numbers must be unique
+/*
+let UniqueArr = [];
+for (let i = 5; UniqueArr.length < i;) {
+    let random = Math.floor(Math.random() * 10);
+    if (UniqueArr.indexOf(random) === -1) {
+        UniqueArr.push(random);
+    }
+}
+console.log(UniqueArr);
+*/
 
 // 15. Develop a small script which generate a six characters random id:
 // 5j2khz
+
+/*
+let chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz';
+let randomChars = '';
+for (let i = 0; i < 6; i++) {
+    let random = Math.floor(Math.random() * chars.length);
+    randomChars += chars[random];
+}
+console.log(randomChars);
+*/
