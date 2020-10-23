@@ -319,9 +319,11 @@ console.log(newArr);
     // [7, 7, 6, 7, 8, 7, 7, 7, 7, 5, 5]
 
 /*
+countriesLength = [];
 for(let i = 0; i < countries.length; i++){
-    console.log(countries[i].length);
+    countriesLength.push(countries[i].length);
 }
+console.log(countriesLength);
 */
 
 // 6. Use the countries array to create the following array of arrays:
@@ -340,35 +342,154 @@ for(let i = 0; i < countries.length; i++){
   ['Kenya', 'KEN', 5]
 ] */
 
+/*
+const arrayOfArrays = [];
+for(let i = 0; i < countries.length; i++){
+    arrayOfArrays.push([countries[i], countries[i].toUpperCase().slice(0, 3), countries[i].length]);
+}
+console.log(arrayOfArrays);
 
+// Other way:
+
+const arrayOfArrays = [];
+for (const country of countries) {
+    console.log([country, country.toUpperCase().slice(0, 3), country.length]);
+}
+*/
 
 // 7. In above countries array, check if there is a country or countries containing the word 'land'. If there are countries containing 'land', print it as array. If there is no country containing the word 'land', print 'All these countries are without land'.
 
     // ['Finland', 'Iceland']
 
+/*
+let countWithLand = []
+let countWithoutLand = []
+for (const country of countries) {
+    if (country.includes('land')) {
+        countWithLand.push(country);
+    } else {
+        countWithoutLand.push(country);
+    }
+}
+console.log('Countries containing the word land:');
+console.log(countWithLand);
+console.log('All these countries are without land:');
+console.log(countWithoutLand);
+*/
+
 // 8. In above countries array, check if there is a country or countries end with a substring 'ia'. If there are countries end with, print it as array. If there is no country containing the word 'ai', print 'These are countries ends without ia'.
 
     // ['Albania', 'Bolivia','Ethiopia']
+
+/*
+let countWithIa = []
+let countWithoutIa = []
+for (const country of countries) {
+    if (country.slice(country.length-2, country.length).includes('ia')) { // Check if country includes 'ia' only in the last 2 characters of the country, this prevents from countries containing ia at any point.
+        countWithIa.push(country);
+    } else {
+        countWithoutIa.push(country);
+    }
+}
+console.log('Countries ending in ia:');
+console.log(countWithIa);
+console.log('These are countries ends without ia:');
+console.log(countWithoutIa);
+*/
 
 // 9. Using the above countries array, find the country containing the biggest number of characters.
 
     // Ethiopia
 
+/*
+let countriesCharLength = [];
+for(const country of countries){
+    countriesCharLength.push(country.length);
+}
+let highestLength = Math.max(...countriesCharLength); // Finds the maximum value in the array
+console.log(`The country containing the biggest number of characters is: \n\n${countries[countriesCharLength.indexOf(highestLength)]}\n\nWith ${highestLength} characters long.`);
+*/
+
 // 10. Using the above countries array, find the country containing only 5 characters.
 
 // ['Japan', 'Kenya']
 
+/*
+let containOnly5Chars = [];
+for(const country of countries){
+    if (country.length === 5) {
+        containOnly5Chars.push(country);
+    }
+}
+console.log(containOnly5Chars);
+*/
+
 // 11. Find the longest word in the webTechs array
+
+/*
+let webTechsLength = [];
+for(const webTech of webTechs){
+    webTechsLength.push(webTech.length);
+}
+let highestLength = Math.max(...webTechsLength); // Finds the maximum value in the array
+console.log(`The web tech containing the biggest number of characters is: \n\n${webTechs[webTechsLength.indexOf(highestLength)]}\n\nWith ${highestLength} characters long.`);
+*/
 
 // 12. Use the webTechs array to create the following array of arrays:
 
     // [["HTML", 4], ["CSS", 3],["JavaScript", 10],["React", 5],["Redux", 5],["Node", 4],["MongoDB", 7]]
 
+/*
+let arrayOfArrays = [];
+for (const webTech of webTechs) {
+    arrayOfArrays.push([webTech, webTech.length])
+}
+console.log(arrayOfArrays);
+*/
+
 // 13. An application created using MongoDB, Express, React and Node is called a MERN stack app. Create the acronym MERN by using the array mernStack
+
+/*
+for (let i = 0; i < mernStack.length ; i++) {
+    console.log(mernStack[i].slice(0, 1));
+}
+
+// OR
+
+for (let i = 0; i < mernStack.length ; i++) {
+    console.log(mernStack[i][0]);
+}
+
+// OR
+
+for (const mern of mernStack) {
+    console.log(mern[0])
+}
+*/
 
 // 14. Iterate through the array, ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"] using a for loop or for of loop and print out the items.
 
+/*
+let techs = ["HTML", "CSS", "JS", "React", "Redux", "Node", "Express", "MongoDB"]
+for (let i = 0; i < techs.length; i++) {
+    console.log(techs[i]);
+}
+
+// OR
+
+for (let tech of techs) {
+    console.log(tech);
+}
+*/
+
 // 15. This is a fruit array , ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop without using a reverse method.
+
+/*
+let fruits = ['banana', 'orange', 'mango', 'lemon'];
+for (let i = fruits.length - 1; i >= 0; i--) {
+    console.log(fruits[i]);
+}
+*/
 
 // 16. Print all the elements of array as shown below.
 
@@ -383,4 +504,20 @@ for(let i = 0; i < countries.length; i++){
   REACT
   NODE
   EXPRESS
-  MONGODB */
+  MONGODB  jfnasuiodhnfusdhfuds CONCAT*/
+
+const fullStack = [
+    ['HTML', 'CSS', 'JS', 'React'],
+    ['Node', 'Express', 'MongoDB']
+]
+
+/*
+const firstArray = fullStack[0];
+const secondArray = fullStack[1];
+
+const oneArrayOnly = firstArray.concat(secondArray);
+
+for (const one of oneArrayOnly) {
+    console.log(one);
+}
+*/
