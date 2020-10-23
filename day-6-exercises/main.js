@@ -1,4 +1,4 @@
-const countries = [
+/* const countries = [
 	"Albania",
 	"Bolivia",
 	"Canada",
@@ -23,6 +23,7 @@ const webTechs = [
 ];
 
 const mernStack = ["MongoDB", "Express", "React", "Node"];
+*/
 
 // Exercises: Level 1
 
@@ -504,14 +505,15 @@ for (let i = fruits.length - 1; i >= 0; i--) {
   REACT
   NODE
   EXPRESS
-  MONGODB  jfnasuiodhnfusdhfuds CONCAT*/
+  MONGODB*/
 
+/*
 const fullStack = [
     ['HTML', 'CSS', 'JS', 'React'],
     ['Node', 'Express', 'MongoDB']
 ]
 
-/*
+
 const firstArray = fullStack[0];
 const secondArray = fullStack[1];
 
@@ -520,4 +522,292 @@ const oneArrayOnly = firstArray.concat(secondArray);
 for (const one of oneArrayOnly) {
     console.log(one);
 }
+*/
+
+
+// Exercises: Level 3
+
+// 1. Copy countries array(Avoid mutation)
+/*
+const countriesCopy = [...countries];
+countriesCopy.push('This should only be pushed in countriesCopy array');
+countries.push('This should only be pushed in countries array');
+console.log(countriesCopy);
+console.log(countries);
+*/
+
+// 2. Arrays are mutable. Create a copy of array which does not modify the original. Sort the copied array and store in a variable sortedCountries
+/*
+const countriesCopy = [...countries];
+const sortedCountries = countriesCopy.sort(); // Already sorted manually
+console.log(sortedCountries);
+*/
+
+// 3. Sort the webTechs array and mernStack array
+/*
+const sortedWebTechs = webTechs.sort(); // Already sorted manually
+const sortedMernStack = mernStack.sort(); // Already sorted manually
+console.log(sortedWebTechs);
+console.log(sortedMernStack);
+*/
+
+// 4. Extract all the countries contain the word 'land' from the countries array and print it as array
+
+const countries = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombi',
+    'Comoros',
+    'Congo (Brazzaville)',
+    'Congo',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (Timor Timur)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia and Montenegro',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+]
+
+/*
+let countWithLand = []
+for (const country of countries) {
+    if (country.includes('land')) {
+        countWithLand.push(country);
+    }
+}
+console.log('Countries containing the word land:');
+console.log(countWithLand);
+*/
+
+// 5. Find the country containing the highest number of characters in the countries array
+/*
+let countriesLength = [];
+for(const country of countries){
+    countriesLength.push(country.length);
+}
+let highestLength = Math.max(...countriesLength); // Finds the maximum value in the array
+console.log(countriesLength);
+console.log(`The country containing the biggest number of characters is: \n\n${countries[countriesLength.indexOf(highestLength)]}\n\nWith ${highestLength} characters long.`);
+*/
+
+// 6. Extract all the countries contain the word 'land' from the countries array and print it as array
+// Duplicated exercise
+
+// 7. Extract all the countries containing only four characters from the countries array and print it as array
+/*
+let containOnly5Chars = [];
+for(const country of countries){
+    if (country.length === 4) {
+        containOnly5Chars.push(country);
+    }
+}
+console.log(containOnly5Chars);
+*/
+
+// 8. Extract all the countries containing two or more words from the countries array and print it as array
+/*
+let contain2OrMoreWords = [];
+for(const country of countries){
+    if (country.split(' ').length >= 2) {
+        contain2OrMoreWords.push(country);
+    }
+}
+console.log(contain2OrMoreWords);
+*/
+
+// 9. Reverse the countries array and capitalize each country and stored it as an array
+/*
+countries.reverse();
+
+const reversedAndCapitalisedCountries = [];
+for(const country of countries){
+    if (country.split(' ').length >= 2) {
+        reversedAndCapitalisedCountries.push(country[0].slice(0, 1).toUpperCase()+country[1].slice(0, 1).toUpperCase()+country[2].slice(0, 1).toUpperCase()+country[3].slice(0, 1).toUpperCase()+country.slice(1)); // This is easier with a for lopp, not for...of loop
+    } else {
+        reversedAndCapitalisedCountries.push(country.slice(0, 1).toUpperCase()+country.slice(1));
+    }
+}
+
+console.log(reversedAndCapitalisedCountries);
 */
