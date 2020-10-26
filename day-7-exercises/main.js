@@ -203,3 +203,161 @@ function findMax (num1, num2, num3) {
 }
 console.log(findMax(num1, num2, num3));
 */
+
+// Exercises: Level 2
+
+// 1. Linear equation is calculated as follows: ax + by + c = 0. Write a function which calculates value of a linear equation, solveLinEquation.
+// All of this is not necesary, there are already very good libraries to solve equations. Devs make complicated things easy, not the other way round.
+/*
+let a = prompt('Tell me the value of a');
+let b = prompt('Tell me the value of b');
+let c = prompt('Tell me the value of c');
+
+function solveLinEquation(a, b, c) {
+    const x = (-b -c)/a
+    const y = (-c -(-a * -x)) / b; 
+    return `x is ${x} and y is ${y}`;
+}
+
+console.log(solveLinEquation(a, b, c));
+*/
+
+// 2. Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation.
+/*
+    console.log(solveQuadratic()) // {0}
+    console.log(solveQuadratic(1, 4, 4)) // {-2}
+    console.log(solveQuadratic(1, -1, -2)) // {2, -1}
+    console.log(solveQuadratic(1, 7, 12)) // {-3, -4}
+    console.log(solveQuadratic(1, 0, -4)) //{2, -2}
+    console.log(solveQuadratic(1, -1, 0)) //{1, 0}
+*/
+/*
+// Source: https://www.programiz.com/javascript/examples/quadratic-roots
+
+let a = prompt('Tell me the value of a');
+let b = prompt('Tell me the value of b');
+let c = prompt('Tell me the value of c');
+
+function solveQuadEquation(a, b, c) {
+    // program to solve quadratic equation
+    let root1, root2;
+
+    // calculate discriminant
+    let discriminant = b * b - 4 * a * c;
+
+    // condition for real and different roots
+    if (discriminant > 0) {
+        root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+        root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+
+        // result
+        console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+    }
+
+    // condition for real and equal roots
+    else if (discriminant == 0) {
+        root1 = root2 = -b / (2 * a);
+
+        // result
+        console.log(`The roots of quadratic equation are ${root1} and ${root2}`);
+    }
+
+    // if roots are not real
+    else {
+        let realPart = (-b / (2 * a)).toFixed(2);
+        let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
+
+        // result
+        console.log(`The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`);
+    }
+}
+console.log(solveQuadEquation(a, b, c));
+*/
+
+// 3. Declare a function name printArray. It takes array as a parameter and it prints out each value of the array.
+/*
+function printArray(array) {
+    for (const value of array) {
+        console.log(value);
+    }
+}
+printArray([6, 12, 1, 24]);
+*/
+
+// 4. Write a function name showDateTime which shows time in this format: 08/01/2020 04:08 using the Date object.
+/*
+    showDateTime()
+    08/01/2020 04:08
+*/
+
+function showDateTime() {
+    let date = new Date();
+    let datee = date.getDate();
+    let month = date.getUTCMonth();
+    let year = date.getFullYear();
+    let hour = date.getHours();
+    let minutes = date.getMinutes();
+    return `${datee}/${month + 1}/${year} ${hour}:${minutes} `
+}
+console.log(showDateTime());
+
+// 5. Declare a function name swapValues. This function swaps value of x to y.
+/*
+    swapValues(3, 4) // x => 4, y=>3
+    swapValues(4, 5) // x = 5, y = 4
+*/
+/*
+function swapValues(a, b) {
+    let x = b;
+    let y = a;
+    console.log(`x = ${x}, y = ${y}`);
+}
+swapValues(3, 4);
+
+// OR
+
+function swapValues(x, y) {
+    console.log(`x = ${y}, y = ${x}`);
+}
+swapValues(4, 5);
+*/
+
+// 6. Declare a function name reverseArray. It takes array as a parameter and it returns the reverse of the array (don't use method).
+/*
+    console.log(reverseArray([1, 2, 3, 4, 5]))
+    //[5, 4, 3, 2, 1]
+    console.log(reverseArray(['A', 'B', 'C']))
+    //['C', 'B', 'A']
+*/
+
+function reverseArray(arr) {
+    let newArr = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        newArr.push(arr[i]);
+    }
+    console.log(newArr);
+}
+reverseArray(['banana', 'orange', 'mango', 'lemon'])
+
+// 7. Declare a function name capitalizeArray. It takes array as a parameter and it returns the - capitalizedarray.
+
+capitalizeArray = (array) => {
+    let capitalizedarray = [];
+
+    for (const arr of array) {
+        capitalizedarray.push(arr[0].toUpperCase()+arr.slice(1));
+    }
+
+    return console.log(capitalizedarray);
+}
+capitalizeArray(['spain', 'portugal', 'france', 'italy']);
+
+// 8. Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
+
+// 9. Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+
+// 10. Declare a function name sumOfNumbers. It takes a number parameter and it adds all the numbers in that range.
+
+// 11. Declare a function name sumOfOdds. It takes a number parameter and it adds all the odd numbers in that - range.
+
+// 12. Declare a function name sumOfEven. It takes a number parameter and it adds all the even numbers in that - range.
