@@ -354,10 +354,166 @@ capitalizeArray(['spain', 'portugal', 'france', 'italy']);
 
 // 8. Declare a function name addItem. It takes an item parameter and it returns an array after adding the item
 
+addItem = (item) => {
+    let array = [];
+
+    array.push(item);
+
+    return console.log(array);
+}
+addItem('This is working');
+
 // 9. Declare a function name removeItem. It takes an index parameter and it returns an array after removing an item
+
+removeItem = (index) => {
+    let array = ['Ferrari', 'Mercedes', 'tricycle', 'Lambo'];
+
+    array.splice(index, 1);
+
+    return console.log(array);
+}
+removeItem(2);
 
 // 10. Declare a function name sumOfNumbers. It takes a number parameter and it adds all the numbers in that range.
 
+function sumOfNumbers(...numbers) {
+    let sumOfNum = 0;
+
+    for (const num of numbers) {
+        sumOfNum += num;
+    }
+
+    return console.log(sumOfNum);
+}
+sumOfNumbers(1, 2, 3, 4); // 1 + 2 + 3 + 4 = 10
+
 // 11. Declare a function name sumOfOdds. It takes a number parameter and it adds all the odd numbers in that - range.
 
+function sumOfOdds(...nums) {
+    let oddSum = 0;
+
+    for (const num of nums) {
+        if (num % 2 !== 0) {
+            oddSum += num;
+        }
+    }
+    
+    return console.log(oddSum);
+}
+sumOfOdds(1, 2, 3, 4); // 1 + 3 = 4
+
 // 12. Declare a function name sumOfEven. It takes a number parameter and it adds all the even numbers in that - range.
+
+function sumOfEven(...nums) {
+    let evenSum = 0;
+
+    for (const num of nums) {
+        if (num % 2 === 0) {
+            evenSum += num;
+        }
+    }
+
+    return console.log(evenSum);
+}
+sumOfEven(1, 2, 3, 4); // 2 + 4 = 6
+
+// 13. Declare a function name evensAndOdds . It takes a positive integer as parameter and it counts number of evens and odds in the number.
+/*
+    evensAndOdds(100);
+    The number of odds are 50.
+    The number of evens are 51.
+*/
+
+function evensAndOdds(num) {
+    let even = 0;
+    let odd = 0;
+
+    for (let i = 0; i <= num; i++) {
+        if (i % 2 === 0) {
+            even++;
+        } else if (i % 2 !== 0) {
+            odd++;
+        }
+    }
+
+    return console.log(`The number of odds are ${odd}\nThe number of evens are ${even}`);
+}
+evensAndOdds(parseInt(8.34));
+
+// 14. Write a function which takes any number of arguments and return the sum of the arguments
+/*
+    sum(1, 2, 3) // -> 6
+    sum(1, 2, 3, 4) // -> 10
+*/
+
+function sum(...nums) {
+    let sum = 0;
+
+    for (const num of nums) {
+        sum += num;
+    }
+
+    return console.log(sum);
+}
+sum(1, 2, 3, 4, 5); // 15
+
+// 15. Write a function which generates a randomUserIp.
+
+function randomUserIp() {
+    let one = Math.floor(Math.random() * 255);
+    let two = Math.floor(Math.random() * 255);
+    let three = Math.floor(Math.random() * 255);
+    let four = Math.floor(Math.random() * 255);
+    return console.log(`Your generated IP: ${one}:${two}:${three}:${four}`);
+}
+randomUserIp();
+
+// 16. Write a function which generates a randomMacAddress
+
+function randomMacAddress() {
+    let hexDigits = "0123456789ABCDEF";
+    let macAddress = "";
+    for (let i = 0; i < 6; i++) {
+        macAddress+=hexDigits.charAt(Math.round(Math.random() * 15));
+        macAddress+=hexDigits.charAt(Math.round(Math.random() * 15));
+        if (i != 5) {
+            macAddress += ":"
+        };
+    }
+
+    return console.log(`Your generated Mac address: ${macAddress}`);
+}
+randomMacAddress();
+
+// 17. Declare a function name randomHexaNumberGenerator. When this function is called it generates a random hexadecimal number. The function return the hexadecimal number.
+/*
+    console.log(randomHexaNumberGenerator());
+    '#ee33df'
+*/
+
+function randomHexaNumberGenerator() {
+    let chars = "0123456789ABCDEF";
+    let hex = "";
+    for (let i = 0; i < 6; i++) {
+        hex += chars[Math.floor(Math.random() * chars.length)];
+    }
+
+    return console.log(`#${hex}`);
+}
+randomHexaNumberGenerator();
+
+// 18. Declare a function name userIdGenerator. When this function is called it generates seven character id. The function return the id.
+/*
+    console.log(userIdGenerator());
+    41XTDbE
+*/
+
+function userIdGenerator() {
+    let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    let userId = "";
+    for (let i = 0; i < 7; i++) {
+        userId += chars[Math.floor(Math.random() * chars.length)];
+    }
+    return console.log(userId);
+}
+userIdGenerator();
