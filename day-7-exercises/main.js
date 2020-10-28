@@ -204,6 +204,7 @@ function findMax (num1, num2, num3) {
 console.log(findMax(num1, num2, num3));
 */
 
+
 // Exercises: Level 2
 
 // 1. Linear equation is calculated as follows: ax + by + c = 0. Write a function which calculates value of a linear equation, solveLinEquation.
@@ -517,3 +518,588 @@ function userIdGenerator() {
     return console.log(userId);
 }
 userIdGenerator();
+
+
+// Exercises: Level 3
+
+// 1. Modify question number n . Declare a function name userIdGeneratedByUser. It doesn’t take any parameter but it takes two inputs using prompt(). One of the input is the number of characters and the second input is the number of ids which are supposed to be generated.
+/*
+    userIdGeneratedByUser()
+    'kcsy2
+    SMFYb
+    bWmeq
+    ZXOYh
+    2Rgxf
+    '
+    userIdGeneratedByUser()
+    '1GCSgPLMaBAVQZ26
+    YD7eFwNQKNs7qXaT
+    ycArC5yrRupyG00S
+    UbGxOFI7UXSWAyKN
+    dIV0SSUTgAdKwStr
+    '
+*/
+/*
+userIdGeneratedByUser = () => {
+    let chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
+    let numOfChars = Number(prompt("How many chars?"));
+    let numOfIds = Number(prompt("How many ids do you want to generate?"));
+    let ids = [];
+
+    for (i = 0; i < numOfIds; i++) {
+        ids[i] = "";
+        for (k = 0; k < numOfChars; k++) {
+            ids[i] += chars[Math.floor(Math.random() * chars.length)];
+        }
+    }
+
+    return console.log(ids.join('\n'));
+}
+userIdGeneratedByUser();
+*/
+
+// 2. Write a function name rgbColorGenerator and it generates rgb colors.
+/*
+    rgbColorGenerator()
+    rgb(125,244,255)
+*/
+
+function rgbColorGenerator() {
+    let one = Math.floor(Math.random() * 255);
+    let two = Math.floor(Math.random() * 255);
+    let three = Math.floor(Math.random() * 255);
+    return console.log(`rgb(${one},${two},${three})`);
+}
+rgbColorGenerator();
+
+// 3. Write a function arrayOfHexaColors which return any number of hexadecimal colors in an array.
+/*
+function arrayOfHexaColors() {
+    let chars = "0123456789ABCDEF";
+    let numOfHexaColors = Number(prompt("How many hexadecimal colors do you want to generate?"));
+    let hex = [];
+    for (let k = 0; k < numOfHexaColors; k++) {
+        hex[k] = "#";
+        for (let i = 0; i < 6; i++) {
+            hex[k] += chars[Math.floor(Math.random() * chars.length)];
+        }
+    }
+
+    return console.log(hex.join('\n'));
+}
+arrayOfHexaColors();
+*/
+
+// 4. Write a function arrayOfRgbColors which return any number of RGB colors in an array.
+/*
+function arrayOfRgbColors() {
+    let chars = "0123456789ABCDEF";
+    let numOfRgb = Number(prompt("How many rgb colors do you want to generate?"));
+    let colors = [];
+
+    for (let k = 0; k < numOfRgb; k++) {
+        colors[k] = "rgb";
+        colors[k] += `(${ Math.floor(Math.random() * 255) },`;
+        colors[k] += `${ Math.floor(Math.random() * 255) },`
+        colors[k] += `${ Math.floor(Math.random() * 255) })`
+        
+    }
+    return console.log(colors.join('\n'));
+}
+arrayOfRgbColors();
+*/
+
+// 5. Write a function convertHexaToRgb which converts hexa color to rgb and it returns an rgb color.
+
+function convertHexaToRgb (hex) {
+    if (hex.charAt(0) === '#') {
+        hex = hex.substr(1);
+    }
+    if ((hex.length < 2) || (hex.length > 6)) {
+        return false;
+    }
+    let values = hex.split(''),
+        r,
+        g,
+        b;
+
+    if (hex.length === 2) {
+        r = parseInt(values[0].toString() + values[1].toString(), 16);
+        g = r;
+        b = r;
+    } else if (hex.length === 3) {
+        r = parseInt(values[0].toString() + values[0].toString(), 16);
+        g = parseInt(values[1].toString() + values[1].toString(), 16);
+        b = parseInt(values[2].toString() + values[2].toString(), 16);
+    } else if (hex.length === 6) {
+        r = parseInt(values[0].toString() + values[1].toString(), 16);
+        g = parseInt(values[2].toString() + values[3].toString(), 16);
+        b = parseInt(values[4].toString() + values[5].toString(), 16);
+    } else {
+        return false;
+    }
+    
+    return console.log(`rgb(${r}, ${g}, ${b})`);
+}
+convertHexaToRgb('#081094'); // rgb(8, 16, 148) 
+
+// Source: https://gist.github.com/comficker/871d378c535854c1c460f7867a191a5a#file-hex2rgb-js
+
+// 6. Write a function convertRgbToHexa which converts rgb to hexa color and it returns an hexa color.
+
+function rgbToHex (r, g, b) {
+    let hex1 = Number(r).toString(16);
+    if (hex1.length < 2) {
+         hex1 = "0" + hex1;
+    }
+    let hex2 = Number(g).toString(16);
+    if (hex2.length < 2) {
+         hex2 = "0" + hex2;
+    }
+    let hex3 = Number(b).toString(16);
+    if (hex3.length < 2) {
+         hex3 = "0" + hex3;
+    }
+    return console.log(`#${hex1}${hex2}${hex3}`);
+};
+rgbToHex(8, 16, 148); // #081094
+
+// 7. Write a function generateColors which can generate any number of hexa or rgb colors.
+/*
+    console.log(generateColors('hexa', 3)) // ['#a3e12f', '#03ed55', '#eb3d2b']
+    console.log(generateColors('hexa', 1)) // '#b334ef'
+    console.log(generateColors('rgb', 3)) // ['rgb(5, 55, 175)', 'rgb(50, 105, 100)', 'rgb(15, 26, 80)']
+    console.log(generateColors('rgb', 1)) // 'rgb(33,79, 176)'
+*/
+/*
+function generateColors(type, arrLength) {
+    let chars = '0123456789ABCDEF';
+    let colors = [];
+    type = String(prompt('Do you want a rgb color or an hex color?', 'rgb or hex'));
+    arrLength = Number(prompt('How many colors do you want?'));
+    if (type === 'rgb') {
+        for (i = 0; i < arrLength; i++) {
+            colors[i] = 'rgb';
+            colors[i] += `(${Math.floor(Math.random() * 255)},`;
+            colors[i] += `${Math.floor(Math.random() * 255)},`
+            colors[i] += `${Math.floor(Math.random() * 255)})`
+        }
+    } else if (type === 'hex') {
+        for (let i = 0; i < arrLength; i++) {
+            colors[i] = '#';
+            for (k = 0; k < 6; k++) {
+                colors[i] += chars[Math.floor(Math.random() * chars.length)];
+            }
+        }
+    }
+    return console.log(colors);
+    // If you don´t want to return an array, only strings, use:
+    // console.log(colors.join('\n'));
+}
+generateColors();
+*/
+
+// 8. Call your function shuffleArray, it takes an array as a parameter and it returns a shuffled array
+
+function shuffleArray(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+    return console.log(array);
+}
+shuffleArray([2, 1, 3, 5, 4]);
+
+// 9. Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+
+function factorial(num) {
+    let factorial = 1;
+    for (let i = 1; i <= num; i++) {
+        factorial *= i;
+    }
+    return console.log(factorial);
+}
+factorial(6); // 6 * 5 * 4 * 3 * 2 * 1 = 720
+
+// 10. Call your function isEmpty, it takes a parameter and it checks if it is empty or not
+
+function isEmpty(value) {
+    if (value === undefined) {
+        return console.log("The value it's empty");
+    } else {
+        return console.log("The value is not empty");
+    }
+}
+isEmpty(); // No argument, no value, undefined, so is empty
+
+// 11. Call your function sum, it takes any number of arguments and it returns the sum.
+// We have that function in the exercise 14 of level 2.
+
+sum(8, 10, 94); // Calling the function sum
+
+// 12. Write a function called sumOfArrayItems, it takes an array parameter and return the sum of all the items. Check if all the array items are number types. If not give return reasonable feedback.
+
+function sumOfArrayItems(array) {
+    let sum = 0;
+    for (const arr of array) {
+        if (typeof arr === 'number') {
+            sum += arr;
+        } else {
+            sum = `it's a string`;
+        }
+    } 
+    return console.log(sum);
+}
+sumOfArrayItems([1, 2, 3, 4]);
+
+// 13. Write a function called average, it takes an array parameter and returns the average of the items. Check if all the array items are number types. If not give return reasonable feedback.
+
+function average(array) {
+    let sum = 0;
+    for (const arr of array) {
+        if (typeof arr === 'number') {
+            sum += arr;
+        } else {
+            sum = `it's a string`;
+        }
+    } 
+    let average = sum / array.length;
+    return console.log(average);
+}
+average([2, 5, 1, 7, 3]);
+
+// 14. Write a function called modifyArray takes array as parameter and modifies the fifth item of the array and return the array. If the array length is less than five it return 'item not found'.
+/*
+    console.log(modifyArray(['Avocado', 'Tomato', 'Potato','Mango', 'Lemon','Carrot']);
+
+    ['Avocado', 'Tomato', 'Potato','Mango', 'LEMON', 'Carrot']
+
+    console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon','Microsoft',  'IBM']);
+
+    ['Google', 'Facebook','Apple', 'Amazon','MICROSOFT',  'IBM']
+
+    console.log(modifyArray(['Google', 'Facebook','Apple', 'Amazon']);
+
+    'Not Found'
+*/
+
+function modifyArray(arr) {
+    if (arr.length >= 6) {
+        arr.splice(4, 1, arr[4].toUpperCase());
+        return arr;
+    } else {
+        return 'Item not found';
+    }
+}
+console.log(modifyArray(['Avocado', 'Tomato', 'Potato', 'Mango', 'Lemon', 'Carrot']));
+
+// 15. Write a function called isPrime, which checks if a number is prime number.
+
+function isPrime(num) {
+
+        let exactDivision = (num % 2 == 0 || num % 3 == 0 || num % 5 == 0 || num % 7 == 0 || num % 11 == 0);
+        let quotientIsLessThanDivisor = (num / 2) < 2 || (num / 3) < 3 || (num / 5) < 5 || (num / 7) < 7 || (num / 11) < 11;
+    
+        if (!exactDivision && quotientIsLessThanDivisor) {
+            return `${num} is prime`;
+        } else if (num === 1 ||num === 2||num === 3||num === 5||num === 7||num === 11) {
+            return `${num} is prime`;
+        } else {
+            return `${num} is not prime`;
+        }
+    
+}
+console.log(isPrime(97)); // 97 is prime
+
+// 16. Write a functions which checks if all items are unique in the array.
+
+function isUnique(arr) {
+    let sorted_arr = arr.slice().sort();
+    let results = [];
+
+    for (let i = 0; i < sorted_arr.length - 1; i++) {
+      if (sorted_arr[i + 1] == sorted_arr[i]) {
+        results.push(sorted_arr[i]);
+      }
+    }
+    if (results.length === 0) {
+        return 'All items in the array are unique.';
+    } else {
+        return `There are this duplicates in the array: ${results}`;
+    }
+}
+console.log(isUnique([2, 1, 3, 4, 6, 5]));
+
+// 17. Write a function which checks if all the items of the array are the same data type.
+
+function isSameDataType(arr) {
+    let sorted_arr = arr.slice().sort();
+    let results = [];
+
+    for (let i = 0; i < sorted_arr.length - 1; i++) {
+      if (typeof sorted_arr[i + 1] !== typeof sorted_arr[i]) {
+        results.push(typeof sorted_arr[i]);
+      }
+    }
+    if (results.length === 0) {
+        return 'All items in the array have the same data type.';
+    } else {
+        return `There are this different data types in the array: ${results}`;
+    }
+}
+console.log(isSameDataType([1, 2, 2, 3, 'string', 6, true, false]));
+
+// 18. JavaScript variable name does not support special characters or symbols except $ or _. Write a function isValidVariable which check if a variable is valid or invalid variable.
+
+function isValidVarName( name ) {
+    try {
+        Function('var ' + name);
+    } catch( e ) {
+        return `${name} is INVALID`;
+    }
+    return `${name} is valid`;
+}
+
+console.log(isValidVarName('1'));
+console.log(isValidVarName('my_var'));
+console.log(isValidVarName('_var'));
+console.log(isValidVarName('$var'));
+console.log(isValidVarName('1var'));
+console.log(isValidVarName('my-var'));
+console.log(isValidVarName('my_var_1'));
+console.log(isValidVarName('my_var_1'));
+
+// 19. Write a function which returns array of seven random numbers in a range of 0-9. All the numbers must be unique.
+/*
+    sevenRandomNumbers()
+    [(1, 4, 5, 7, 9, 8, 0)]
+*/
+
+function sevenRandomNumbers() {
+    let arr = [];
+    for (let i = 0; i < 7; i++) {
+        arr.push(Math.floor(Math.random() * 10))
+    }
+    return arr;
+}
+
+
+console.log(sevenRandomNumbers());
+console.log(isUnique(sevenRandomNumbers()));
+
+// 20. Write a function called reverseCountries, it takes countries array and first it copy the array and returns the reverse of the original array
+/*
+const countries = [
+    'Afghanistan',
+    'Albania',
+    'Algeria',
+    'Andorra',
+    'Angola',
+    'Antigua and Barbuda',
+    'Argentina',
+    'Armenia',
+    'Australia',
+    'Austria',
+    'Azerbaijan',
+    'Bahamas',
+    'Bahrain',
+    'Bangladesh',
+    'Barbados',
+    'Belarus',
+    'Belgium',
+    'Belize',
+    'Benin',
+    'Bhutan',
+    'Bolivia',
+    'Bosnia and Herzegovina',
+    'Botswana',
+    'Brazil',
+    'Brunei',
+    'Bulgaria',
+    'Burkina Faso',
+    'Burundi',
+    'Cambodia',
+    'Cameroon',
+    'Canada',
+    'Cape Verde',
+    'Central African Republic',
+    'Chad',
+    'Chile',
+    'China',
+    'Colombi',
+    'Comoros',
+    'Congo (Brazzaville)',
+    'Congo',
+    'Costa Rica',
+    "Cote d'Ivoire",
+    'Croatia',
+    'Cuba',
+    'Cyprus',
+    'Czech Republic',
+    'Denmark',
+    'Djibouti',
+    'Dominica',
+    'Dominican Republic',
+    'East Timor (Timor Timur)',
+    'Ecuador',
+    'Egypt',
+    'El Salvador',
+    'Equatorial Guinea',
+    'Eritrea',
+    'Estonia',
+    'Ethiopia',
+    'Fiji',
+    'Finland',
+    'France',
+    'Gabon',
+    'Gambia, The',
+    'Georgia',
+    'Germany',
+    'Ghana',
+    'Greece',
+    'Grenada',
+    'Guatemala',
+    'Guinea',
+    'Guinea-Bissau',
+    'Guyana',
+    'Haiti',
+    'Honduras',
+    'Hungary',
+    'Iceland',
+    'India',
+    'Indonesia',
+    'Iran',
+    'Iraq',
+    'Ireland',
+    'Israel',
+    'Italy',
+    'Jamaica',
+    'Japan',
+    'Jordan',
+    'Kazakhstan',
+    'Kenya',
+    'Kiribati',
+    'Korea, North',
+    'Korea, South',
+    'Kuwait',
+    'Kyrgyzstan',
+    'Laos',
+    'Latvia',
+    'Lebanon',
+    'Lesotho',
+    'Liberia',
+    'Libya',
+    'Liechtenstein',
+    'Lithuania',
+    'Luxembourg',
+    'Macedonia',
+    'Madagascar',
+    'Malawi',
+    'Malaysia',
+    'Maldives',
+    'Mali',
+    'Malta',
+    'Marshall Islands',
+    'Mauritania',
+    'Mauritius',
+    'Mexico',
+    'Micronesia',
+    'Moldova',
+    'Monaco',
+    'Mongolia',
+    'Morocco',
+    'Mozambique',
+    'Myanmar',
+    'Namibia',
+    'Nauru',
+    'Nepal',
+    'Netherlands',
+    'New Zealand',
+    'Nicaragua',
+    'Niger',
+    'Nigeria',
+    'Norway',
+    'Oman',
+    'Pakistan',
+    'Palau',
+    'Panama',
+    'Papua New Guinea',
+    'Paraguay',
+    'Peru',
+    'Philippines',
+    'Poland',
+    'Portugal',
+    'Qatar',
+    'Romania',
+    'Russia',
+    'Rwanda',
+    'Saint Kitts and Nevis',
+    'Saint Lucia',
+    'Saint Vincent',
+    'Samoa',
+    'San Marino',
+    'Sao Tome and Principe',
+    'Saudi Arabia',
+    'Senegal',
+    'Serbia and Montenegro',
+    'Seychelles',
+    'Sierra Leone',
+    'Singapore',
+    'Slovakia',
+    'Slovenia',
+    'Solomon Islands',
+    'Somalia',
+    'South Africa',
+    'Spain',
+    'Sri Lanka',
+    'Sudan',
+    'Suriname',
+    'Swaziland',
+    'Sweden',
+    'Switzerland',
+    'Syria',
+    'Taiwan',
+    'Tajikistan',
+    'Tanzania',
+    'Thailand',
+    'Togo',
+    'Tonga',
+    'Trinidad and Tobago',
+    'Tunisia',
+    'Turkey',
+    'Turkmenistan',
+    'Tuvalu',
+    'Uganda',
+    'Ukraine',
+    'United Arab Emirates',
+    'United Kingdom',
+    'United States',
+    'Uruguay',
+    'Uzbekistan',
+    'Vanuatu',
+    'Vatican City',
+    'Venezuela',
+    'Vietnam',
+    'Yemen',
+    'Zambia',
+    'Zimbabwe'
+  ]
+
+function reverseCountries(countries) {
+    let countriesArray = countries.reverse();
+    return countriesArray;
+}
+console.log(reverseCountries(countries));
+*/
