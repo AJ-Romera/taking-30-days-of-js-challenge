@@ -889,15 +889,20 @@ console.log(isValidVarName('my_var_1'));
 
 function sevenRandomNumbers() {
     let arr = [];
-    for (let i = 0; i < 7; i++) {
-        arr.push(Math.floor(Math.random() * 10))
-    }
+
+    do {
+        let randNum = Math.floor(Math.random() * 10);
+
+        if (arr.indexOf(randNum) === -1) {
+            arr.push(randNum);
+        }
+
+    } while (arr.length < 7);
+    
     return arr;
 }
-
-
 console.log(sevenRandomNumbers());
-console.log(isUnique(sevenRandomNumbers()));
+
 
 // 20. Write a function called reverseCountries, it takes countries array and first it copy the array and returns the reverse of the original array
 /*
