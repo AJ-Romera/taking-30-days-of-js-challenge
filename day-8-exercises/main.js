@@ -293,34 +293,34 @@ console.log(`Balance this month: ${personAccount.accountBalance()}`);
     ];
 
     const products = [
-  {
-    _id: 'eedfcf',
-    name: 'mobile phone',
-    description: 'Huawei Honor',
-    price: 200,
-    ratings: [
-      { userId: 'fg12cy', rate: 5 },
-      { userId: 'zwf8md', rate: 4.5 }
-    ],
-    likes: []
-  },
-  {
-    _id: 'aegfal',
-    name: 'Laptop',
-    description: 'MacPro: System Darwin',
-    price: 2500,
-    ratings: [],
-    likes: ['fg12cy']
-  },
-  {
-    _id: 'hedfcg',
-    name: 'TV',
-    description: 'Smart TV:Procaster',
-    price: 400,
-    ratings: [{ userId: 'fg12cy', rate: 5 }],
-    likes: ['fg12cy']
-  }
-]
+        {
+            _id: "eedfcf",
+            name: "mobile phone",
+            description: "Huawei Honor",
+            price: 200,
+            ratings: [
+                { userId: "fg12cy", rate: 5 },
+                { userId: "zwf8md", rate: 4.5 }
+            ],
+            likes: [],
+        },
+        {
+            _id: "aegfal",
+            name: "Laptop",
+            description: "MacPro: System Darwin",
+            price: 2500,
+            ratings: [],
+            likes: ["fg12cy"],
+        },
+        {
+            _id: "hedfcg",
+            name: "TV",
+            description: "Smart TV:Procaster",
+            price: 400,
+            ratings: [{ userId: "fg12cy", rate: 5 }],
+            likes: ["fg12cy"],
+        },
+    ];
 
 // Imagine you are getting the above users collection from a MongoDB database.
 
@@ -386,46 +386,85 @@ signIn("María", "123465");
 // 3. The products array has three elements and each of them has six properties.
 // a. Create a function called rateProduct which rates the product
 
-function rateProduct() {
-
+function rateProduct(name, rate) {
+    for (const product of products) {
+        if (product.name.toLowerCase().includes(name)) {
+            let chars = '0123456789abcdefghijklmnñopqrstuvwxyz';
+            let id = [];
+            for (let i = 0; i < 6; i++) {
+                id.push(chars[Math.floor(Math.random() * chars.length)]);
+            }
+            id = id.join('');
+            product.ratings.push({
+                userId: id,
+                rate: rate
+            })
+            console.log('Filter');
+        } else {
+            console.log('Error: No product to rate');
+        }
+    }
 }
-rateProduct();
 
-
-/* ONLY FOR REFERENCE, IGNORE
-const products = [
-	{
-		_id: "eedfcf",
-		name: "mobile phone",
-		description: "Huawei Honor",
-		price: 200,
-		ratings: [
-			{ userId: "fg12cy", rate: 5 },
-			{ userId: "zwf8md", rate: 4.5 },
-		],
-		likes: [],
-	},
-	{
-		_id: "aegfal",
-		name: "Laptop",
-		description: "MacPro: System Darwin",
-		price: 2500,
-		ratings: [],
-		likes: ["fg12cy"],
-	},
-	{
-		_id: "hedfcg",
-		name: "TV",
-		description: "Smart TV:Procaster",
-		price: 400,
-		ratings: [{ userId: "fg12cy", rate: 5 }],
-		likes: ["fg12cy"],
-	},
-];
-*/
+rateProduct('laptop', 3.5);
+console.log(products);
 
 // b. Create a function called averageRating which calculate the average rating of a product
 
+const averageRating = (name) => {
+	let avg = 0;
+	let count = 0;
+	for (let i = 0; i < products.length; i++) {
+		if (name.toLowerCase() === products[i].name.toLowerCase()) {
+
+            for (const rating of products[i].ratings) {
+                //console.log(rating.rate); // See each rating of the product
+                count++;
+                avg += rating.rate;
+            }
+
+		}
+	}
+    return console.log(`The ratings average of ${name} is ${avg = avg / count}`);
+    
+};
+
+averageRating('mobile phone'); 
 
 
 // 4. Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was liked.
+
+const likeProduct = (name) => {
+    let productFound = false;
+
+	for (const product of products) {
+		if (name.toLowerCase() === product.name.toLowerCase()) {
+            productFound = true;
+            console.log('Product found');
+
+			if (product.likes.length === 0) {
+				let chars = "0123456789abcdefghiklmnopqrstuvwxyz";
+				let id = [];
+				for (let i = 0; i < 6; i++) {
+					id.push(chars[Math.floor(Math.random() * chars.length)]);
+				}
+				id = id.join("");
+                product.likes.push(id);
+
+                console.log(`Liked ${name} successfully!`);
+                liked = true;
+            } else {
+                product.likes.pop();
+                console.log(`You removed your like to ${name} successfully!`);
+            }
+		}
+    }
+    
+    if (!productFound) {
+        console.log("No product available");
+    }
+
+};
+
+likeProduct("mobile phone");
+console.log(products); // mobile phone is liked now
