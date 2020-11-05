@@ -114,36 +114,47 @@ console.log(sumOfNums);
 
 // 18. Use reduce to concatenate all the countries and to produce this sentence: Estonia, Finland, Sweden, Denmark, Norway, and IceLand are north European countries
 
-
+let joinCountries = countries.reduce((accumulator, currentValue) => {
+	return accumulator.concat(', ') + currentValue;
+});
+console.log(joinCountries);
 
 // 19. Explain the difference between some and every
 
-
+/*
+    some() method is used to check whether at least ONE of the elements of the array satisfies the given condition or not. The only difference is that the some() method will return true if any predicate is true while every() method will return true only if ALL predicate are true.
+*/
 
 // 20. Use some to check if some names' length greater than seven in names array
 
-
+let lenghtGreaterThanSeven = names.some(name => name.length > 7);
+console.log(lenghtGreaterThanSeven); // true, because Asabeneth lenght is greater than 7, it doesn´t matter if there are more names with lenght > 7 because some method only needs one of the elements that satisfies the given condition.
 
 // 21. Use every to check if all the countries contain the word land
 
-
+let containLand = countries.every(country => country.toLowerCase().includes('land'));
+console.log(containLand); // false, there are some countries that contain 'land' but not every country includes 'land' 
 
 // 22. Explain the difference between find and findIndex.
 
-
+    // The findIndex() method returns the INDEX of the element while find() method returns the element itself. findIndex() takes a predicate and returns the INDEX OF THE FIRST ELEMENT in the array that satisfies the predicate. If no element exists -1 is returned.
 
 // 23. Use find to find the first country containing only six letters in the countries array
 
-
+let containOnlySixLetters = countries.find(country => country.length === 6);
+console.log(containOnlySixLetters);
 
 // 24. Use findIndex to find the position of the first country containing only six letters in the countries array
 
-
+let containOnlySixLettersIndex = countries.findIndex(country => country.length === 6);
+console.log(containOnlySixLettersIndex);
 
 // 25. Use findIndex to find the position of Norway if it doesn't exist in the array you will get -1.
 
-
+let findNorwayIndex = countries.findIndex(country => country.toLowerCase().includes('norway'));
+console.log(findNorwayIndex);
 
 // 26. Use findIndex to find the position of Russia if it doesn't exist in the array you will get -1.
 
-
+let findRussiaIndex = countries.findIndex(country => country.toLowerCase().includes('russia'));
+console.log(findRussiaIndex);
