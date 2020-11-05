@@ -158,3 +158,76 @@ console.log(findNorwayIndex);
 
 let findRussiaIndex = countries.findIndex(country => country.toLowerCase().includes('russia'));
 console.log(findRussiaIndex);
+
+
+// Exercises: Level 2
+
+// 1. Find the total price of products by chaining two or more array iterators(eg. arr.map(callback).filter(callback).reduce(callback))
+
+let totalPrice = products
+	.map((product) => {
+		return product.price;
+	})
+	.filter((price) => {
+		return price > 0;
+	})
+	.reduce((accumulator, currentValue) => {
+		return accumulator + currentValue;
+	});
+console.log(totalPrice);
+
+// 2. Find the sum of price of products using only reduce reduce(callback))
+
+const invoiceItems = [
+	{ service: "consultoría", price: 3000 },
+	{ service: "desarrollo", price: 18000 },
+	{ service: "soporte", price: 1000 },
+];
+
+
+const invoiceAmount = invoiceItems.reduce((totalPrice, nextprice) => totalPrice + nextprice.price, 0);
+
+console.log(invoiceAmount);
+
+let totalProductPrice = products.reduce((accumulator, currentValue) => {
+
+    for (const product of products) {
+
+        if (product.price > 0) { // If there were no empty prices in the array, it would have been a lot easier. The same as this, but without the for and the if. This exercise is a bit tricky
+            return accumulator + +currentValue.price
+        }
+
+    }
+    
+}, 0)
+console.log(totalProductPrice);
+
+
+// 3. Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
+// *** I changed the name to countries array to countries2 because we already have a countries array here, at the beginning.
+
+const categorizeCountries = countries.some(country => )
+
+const categorizeCountries = (countries) => {
+    let coun = countries.filter(country => {
+        return country.toLowerCase().includes("ia") || country.toLowerCase().includes("island") || country.toLowerCase().includes("land") || country.toLowerCase().includes("stan");
+    })
+    return coun;
+}
+console.log(categorizeCountries(countries));
+
+// 4. Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
+
+
+
+// 5. Declare a getFirstTenCountries function and return an array of ten countries. Use different functional programming to work on the countries.js array
+
+
+
+// 6. Declare a getLastTenCountries function which which returns the last ten countries in the countries array.
+
+
+
+// 7. Find out which letter is used many times as initial for a country name from the countries array (eg. Finland, Fiji, France etc)
+
+
