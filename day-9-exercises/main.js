@@ -178,17 +178,6 @@ console.log(totalPrice);
 
 // 2. Find the sum of price of products using only reduce reduce(callback))
 
-const invoiceItems = [
-	{ service: "consultoría", price: 3000 },
-	{ service: "desarrollo", price: 18000 },
-	{ service: "soporte", price: 1000 },
-];
-
-
-const invoiceAmount = invoiceItems.reduce((totalPrice, nextprice) => totalPrice + nextprice.price, 0);
-
-console.log(invoiceAmount);
-
 let totalProductPrice = products.reduce((accumulator, currentValue) => {
 
     for (const product of products) {
@@ -206,28 +195,106 @@ console.log(totalProductPrice);
 // 3. Declare a function called categorizeCountries which returns an array of countries which have some common pattern(you find the countries array in this repository as countries.js(eg 'land', 'ia', 'island','stan')).
 // *** I changed the name to countries array to countries2 because we already have a countries array here, at the beginning.
 
-const categorizeCountries = countries.some(country => )
-
-const categorizeCountries = (countries) => {
-    let coun = countries.filter(country => {
-        return country.toLowerCase().includes("ia") || country.toLowerCase().includes("island") || country.toLowerCase().includes("land") || country.toLowerCase().includes("stan");
-    })
-    return coun;
-}
-console.log(categorizeCountries(countries));
+/*
+let wordToFilter = prompt('Im going to filter all countries that includes your input word');
+const categorizeCountries = countries2.filter((country) =>
+	country.name.includes(wordToFilter)
+);
+console.log(categorizeCountries);
+*/
 
 // 4. Create a function which return an array of objects, which is the letter and the number of times the letter use to start with a name of a country.
 
+/*
+// This is the solution but only for one letter, so the array has always only 1 element:
 
+let startWithLetter = prompt('I will filter out all the countries that start with the letter you write here');
+const countriesStartWithLetter = countries2.filter((country) =>
+	country.name.toLowerCase().startsWith(startWithLetter)
+);
+console.log(countriesStartWithLetter);
+
+let charAndTimesArray = [];
+
+const charAndTimes = charAndTimesArray.push({'Letter': startWithLetter, 'Times': countriesStartWithLetter.length});
+
+console.log(charAndTimesArray);
+*/
+
+// This is my solution, it works nice. This exercise took me more than 2 hours!!
+
+let letters = 'ÅABCDEFGHIJKLMNÑOPQRSTUVWXYZ';
+let lettersArray = letters.split('');
+
+let charAndTimesArray = [];
+
+n = 0;
+while (n < lettersArray.length) {
+
+    let letter = lettersArray[n];
+
+    const times = countries2.filter((country) =>
+        country.name.startsWith(letter)
+    );
+
+    const charAndTimes = charAndTimesArray.push({
+        Letter: letter,
+        Times: times.length,
+    });
+
+    n++;
+    
+}
+
+console.log(charAndTimesArray);
 
 // 5. Declare a getFirstTenCountries function and return an array of ten countries. Use different functional programming to work on the countries.js array
 
+// One solution
+const getFirstTenCountries = countries2
+    .splice(0, 10)
+    .map(country => country.name)
+    .sort();
 
+console.log(getFirstTenCountries);
+
+// Another solution
+const getFirstTenCountriesIncludesIa = countries2
+	.filter((country) => country.name.includes('ia'))
+	.map((country) => country.name)
+    .sort()
+    .splice(0, 10);
+
+console.log(getFirstTenCountriesIncludesIa);
 
 // 6. Declare a getLastTenCountries function which which returns the last ten countries in the countries array.
 
+const getLastTenCountries = countries2
+	.splice(countries2.length - 10, countries2.length);
+	//.map((country) => country.name)
+	//.sort();
 
+console.log(getLastTenCountries);
 
 // 7. Find out which letter is used many times as initial for a country name from the countries array (eg. Finland, Fiji, France etc)
 
+
+let timesArray = [];
+
+let times = charAndTimesArray.forEach((arr) => timesArray.push(arr.Times));
+console.log(timesArray); // Number of times a initial is repeated.
+
+let numOfTimesRepeated = charAndTimesArray[0].Times;
+
+for (let i = 0; i < charAndTimesArray.length; i++) {
+	if (charAndTimesArray[i].Times > numOfTimesRepeated) {
+		numOfTimesRepeated = charAndTimesArray[i].Times;
+	}
+}
+
+console.log(numOfTimesRepeated); // The most repeated initial letter is repeated 33 times, but... what letter is it?
+
+console.log(timesArray.indexOf(numOfTimesRepeated)); // The most repeated letter is at index 20
+
+console.log(charAndTimesArray[20]); // S is the most repeated initial and is repeated 33 times.
 
