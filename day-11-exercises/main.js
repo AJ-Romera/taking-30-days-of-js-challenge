@@ -68,3 +68,20 @@ console.log(fin, est, sw, den, nor);
 
 let { width, height, area, perimeter } = rectangle;
 console.log(width, height, area, perimeter);
+
+
+// Exercises: Level 2
+
+// 1. Iterate through the users array and get all the keys of the object using destructuring
+
+for (const {name, scores, skills, age} of users) {
+    console.log(name, scores, skills, age);
+}
+
+// 2. Find the persons who have less than two skills
+
+for (const { name, scores, skills, age } of users) {
+	if (skills.length < 2) {
+		console.log(`${name} has less than two skills, ${name} knows ${skills}`);
+	}
+}
