@@ -107,6 +107,8 @@ Normally, the regExp used for this kind of purposes are really big. Fortunately 
 let paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
 
 function tenMostFrequentWords(text, n) {
+
+    let paragraph = text;
     
     let cleanParagraph = paragraph.replace(/\./g, ""); // The paragraph w/out points
     let wordsArray = cleanParagraph.split(/\s+/) // \s is space, + is one or more. This array contains all words of the paragraph including repeated words.
@@ -121,17 +123,55 @@ function tenMostFrequentWords(text, n) {
     let wordsCount = []; 
 
     for (let i = 0; i < n; i++) {
-        const count = wordsArray.filter((word) => word === noRepeatedWords[i]);
-        wordsCount.push({ word: noRepeatedWords[i], count: count.length });
+        const count = wordsArray.filter((word) => word === noRepeatedWords[i]); // Filter/count repeated words
+        wordsCount.push({ word: noRepeatedWords[i], count: count.length }); // Push the info we want (the word and the counter of the repetition of that word)
     }
 
-    wordsCount.sort((a, b) => {
+    wordsCount.sort((a, b) => { // descending sort, showing the most repeated words first
         if (b.count < a.count) return -1;
         if (b.count > a.count) return 1;
         return 0;
     });
 
-    return wordsCount;
+    return wordsCount; // returns the array
 }
 
-console.log(tenMostFrequentWords(paragraph, 10));
+console.log(tenMostFrequentWords(paragraph, 10)); // Show the "n" most repeated words in the given text
+
+
+// Exercises: Level 3
+
+// 1. Write a function which cleans text. Clean the following text. After cleaning, count three most frequent words in the string.
+
+let sentence = `%I $am@% a %tea@cher%, &and& I lo%#ve %tea@ching%;. There $is nothing; &as& mo@re rewarding as educa@ting &and& @emp%o@wering peo@ple. ;I found tea@ching m%o@re interesting tha@n any other %jo@bs. %Do@es thi%s mo@tivate yo@u to be a tea@cher!?`
+
+/*
+console.log(cleanText(sentence))
+I am a teacher and I love teaching There is nothing as more rewarding as educating and empowering people I found teaching more interesting than any other jobs Does this motivate you to be a teacher
+ ``` */
+
+function cleanText(text) {
+
+    let givenText = text;
+    let cleanText = givenText.replace(/[^a-zA-Z ]/g, "");
+    return cleanText;
+    
+}
+console.log(cleanText(sentence));
+
+let cleanSentence = sentence.replace(/[^a-zA-Z ]/g, ""); // Clean the sentence
+console.log(tenMostFrequentWords(cleanSentence, 3)); // The three most frequent words of the clean sentence
+
+// There is no need to make a new function, because we already have one for this purpose. Please remember: Don´t repeat functions, variables, blocks of code, etc. Always KISS (Keep It Simple Stupid) and keep the code as clean as possible.
+
+
+
+// 2. Write a function which find the most frequent words. After cleaning, count three most frequent words in the string.
+
+/*
+ ```js
+ console.log(mostFrequentWords(cleanedText))
+ [{word:'I', count:3}, {word:'teaching', count:2}, {word:'teacher', count:2}]
+ ``` */
+
+ // This is already done, nonsense exercise
