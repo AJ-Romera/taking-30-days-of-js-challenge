@@ -55,3 +55,83 @@ https://gist.githubusercontent.com/mathiasbynens/6334847/raw/073a6f5df8bf0a218a5
 
 Normally, the regExp used for this kind of purposes are really big. Fortunately there are plenty of good regExp in the internet, or even libraries... be smart, don´t reinvent the wheel.
 */
+
+
+// Exercises: Level 2
+
+// 1. Write a function called tenMostFrequentWords which get the ten most frequent word from a string?
+
+/*
+    paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`
+    console.log(tenMostFrequentWords(paragraph))
+
+    [
+    {word:'love', count:6},
+    {word:'you', count:5},
+    {word:'can', count:3},
+    {word:'what', count:2},
+    {word:'teaching', count:2},
+    {word:'not', count:2},
+    {word:'else', count:2},
+    {word:'do', count:2},
+    {word:'I', count:2},
+    {word:'which', count:1},
+    {word:'to', count:1},
+    {word:'the', count:1},
+    {word:'something', count:1},
+    {word:'if', count:1},
+    {word:'give', count:1},
+    {word:'develop',count:1},
+    {word:'capabilities',count:1},
+    {word:'application', count:1},
+    {word:'an',count:1},
+    {word:'all',count:1},
+    {word:'Python',count:1},
+    {word:'If',count:1}]
+
+    console.log(tenMostFrequentWords(paragraph, 10))
+
+    [{word:'love', count:6},
+    {word:'you', count:5},
+    {word:'can', count:3},
+    {word:'what', count:2},
+    {word:'teaching', count:2},
+    {word:'not', count:2},
+    {word:'else', count:2},
+    {word:'do', count:2},
+    {word:'I', count:2},
+    {word:'which', count:1}
+    ]
+*/
+
+let paragraph = `I love teaching. If you do not love teaching what else can you love. I love Python if you do not love something which can give you all the capabilities to develop an application what else can you love.`;
+
+function tenMostFrequentWords(text, n) {
+    
+    let cleanParagraph = paragraph.replace(/\./g, ""); // The paragraph w/out points
+    let wordsArray = cleanParagraph.split(/\s+/) // \s is space, + is one or more. This array contains all words of the paragraph including repeated words.
+    //console.log(wordsArray);
+
+    const wordsSet = new Set(wordsArray); // It removes all repeated words
+    //console.log(wordsSet);
+
+    const noRepeatedWords = [...wordsSet] // convert set to array. Now the new array does not contain repeated words.
+    //console.log(noRepeatedWords);
+
+    let wordsCount = []; 
+
+    for (let i = 0; i < n; i++) {
+        const count = wordsArray.filter((word) => word === noRepeatedWords[i]);
+        wordsCount.push({ word: noRepeatedWords[i], count: count.length });
+    }
+
+    wordsCount.sort((a, b) => {
+        if (b.count < a.count) return -1;
+        if (b.count > a.count) return 1;
+        return 0;
+    });
+
+    return wordsCount;
+}
+
+console.log(tenMostFrequentWords(paragraph, 10));
