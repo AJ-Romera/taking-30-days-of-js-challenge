@@ -1,52 +1,12 @@
-const names = ["Asabeneh", "Brook", "David", "John"];
+// Exercises: Level 1
+
+// 1. Display the countries array as a table
+
 const countries = [
 	["Finland", "Helsinki"],
 	["Sweden", "Stockholm"],
 	["Norway", "Oslo"],
 ];
-const user = {
-	name: "Asabeneh",
-	title: "Programmer",
-	country: "Finland",
-	city: "Helsinki",
-	age: 250,
-};
-const users = [
-	{
-		name: "Asabeneh",
-		title: "Programmer",
-		country: "Finland",
-		city: "Helsinki",
-		age: 250,
-	},
-	{
-		name: "Eyob",
-		title: "Teacher",
-		country: "Sweden",
-		city: "London",
-		age: 25,
-	},
-	{
-		name: "Asab",
-		title: "Instructor",
-		country: "Norway",
-		city: "Oslo",
-		age: 22,
-	},
-	{
-		name: "Matias",
-		title: "Developer",
-		country: "Denmark",
-		city: "Copenhagen",
-		age: 28,
-	},
-];
-
-
-// Exercises: Level 1
-
-// 1. Display the countries array as a table
-
 console.table(countries);
 
 // 2. Display the countries object as a table
@@ -85,3 +45,33 @@ console.warn('This is a manual warning message!');
 // 3. Write an error message using console.error()
 
 console.error('This is a manual error message! The colors of this errors and warning makes the flag of my country, Spain');
+
+
+// Exercises: Level 3
+// Check the speed difference among the following loops: while, for, for of, forEach
+
+const names = ["Antonio", "José", "Romera", "Alfonso", "AJ"];
+
+console.time("while");
+i = 0;
+while (i <= names.length) {
+    console.log(names[i]);
+    i++;
+}
+console.timeEnd("while");
+
+console.time("for");
+for (let i = 0; i < names.length; i++) {
+	console.log(names[i]);
+}
+console.timeEnd("for");
+
+console.time("for of");
+for (const name of names) {
+    console.log(name);
+}
+console.timeEnd("for of");
+
+console.time("forEach");
+names.forEach(name => console.log(name));
+console.timeEnd("forEach");
