@@ -11,7 +11,7 @@ class Animal {
 		this.food = [];
 	}
 	getNameAndAge() {
-		const nameAndAge = `The name of the animal is ${this.name} and he/she is ${this.age} years old.`;
+		const nameAndAge = `The name of the animal is ${this.name} and he/she is ${this.age} year(s) old.`;
 		return nameAndAge;
 	}
 	set setFood(food) {
@@ -62,3 +62,24 @@ class Cat extends Animal {
 
 const cat1 = new Cat("Mishi", 6, "light grey", 4, "female", "meow meow");
 console.log(cat1);
+
+
+// Exercises: Level 2
+
+// 1. Override the method you create in Animal class
+
+class Pig extends Animal {
+	constructor(name, age, color, legs, gender, says = "oink") {
+		super(name, age, color, legs);
+		this.gender = gender;
+		this.says = says;
+	}
+	getNameAndAge() { // I'm going to override this method adding the pronoum depending on the gender
+		const nameAndAge = `The name of the animal is ${this.name} and ${this.gender == 'male' ? 'he' : 'she'} is ${this.age} year(s) old.`;
+		return nameAndAge;
+    }
+}
+
+const pig1 = new Pig("Floyd", 4, "Pink", 4, "male", "oink oink");
+console.log(pig1);
+console.log(pig1.getNameAndAge());
