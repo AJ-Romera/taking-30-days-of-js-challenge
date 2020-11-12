@@ -134,3 +134,32 @@ console.log(studentJSON);
 
 const filterStudentJSON = JSON.stringify(student, ["firstName", "lastName", "skills"], 4);
 console.log(filterStudentJSON);
+
+
+// Exercises Level 3
+
+// 1. Parse the txt JSON to object.
+
+let txtObj = JSON.parse(txt);
+console.log(txtObj);
+
+// 2. Find the the user who has many skills from the variable stored in txt.
+
+alexSkills = txtObj["Alex"].skills.length;
+asabSkills = txtObj["Asab"].skills.length;
+brookSkills = txtObj["Brook"].skills.length;
+danielSkills = txtObj["Daniel"].skills.length;
+johnSkills = txtObj["John"].skills.length;
+thomasSkills = txtObj["Thomas"].skills.length;
+paulSkills = txtObj["Paul"].skills.length;
+
+console.log(alexSkills); 3 
+console.log(asabSkills); 8 // This one
+console.log(brookSkills); 5
+console.log(danielSkills); 4
+console.log(johnSkills); 6
+console.log(thomasSkills); 4
+console.log(paulSkills); 7
+
+// Asab is the most skilled user.
+// This can be automated somehow, but json.parse reviver doesn´t work, for, forof, forEach, forIn, etc does not work either, so i had to do it manually this time.
