@@ -4,7 +4,7 @@ const catsAPI = "https://api.thecatapi.com/v1/breeds";
 // Exercises: Level 1
 
 // 1. Read the countries API using fetch and print the name of country, capital, languages, population and area.
-
+/*
 fetch(countriesAPI)
     .then(response => response.json())
     .then(data => {
@@ -15,3 +15,18 @@ fetch(countriesAPI)
     })
     
     .catch(error => console.log(error));
+*/
+
+// Exercises: Level 2
+
+// 1. Print out all the cat names in to catNames variable.
+
+let catNames = []
+fetch(catsAPI)
+    .then(response => response.json())
+    .then(data => {
+        let cats = data;
+        cats.forEach((cat) => catNames.push(cat.name));
+        console.log(catNames);
+    })
+    .catch(error =>  console.log(error));
