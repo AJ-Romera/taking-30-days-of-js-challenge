@@ -1,4 +1,4 @@
-// Exercise: Level 1
+// Exercises: Level 1
 
 // 1. Create an index.html file and put four p elements as above: Get the first paragraph by using document.querySelector(tagname) and tag name
 
@@ -104,7 +104,7 @@ console.log(fourthPById);
 */
 
 
-// Exercise: Level 2
+// Exercises: Level 2
 
 // 1. Change style of each paragraph using JavaScript(eg. color, background, border, font-size, font-family)
 
@@ -132,3 +132,18 @@ paragraphs.forEach((p, i) => {
 // 3. Set text content, id and class to each paragraph
 
 // We did all of this in exercises level 1
+
+
+// Exercises: Level 3
+    // DOM: Mini project 1
+
+// 1. Develop the following application, use the following HTML elements to get started with. You will get the same code on starter folder. Apply all the styles and functionality using JavaScript only.
+/**
+ *  The year color is changing every 1 second
+ *  The date and time background color is changing every on seconds
+ *  Completed challenge has background green
+ *  Ongoing challenge has background yellow
+ *  Coming challenges have background red
+ */
+
+// I´ll do this in DOMMiniProject1 HTML file and JS file.
