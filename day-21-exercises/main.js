@@ -38,7 +38,13 @@ allP.forEach((p) => console.log(p));
 
 console.log("======exercise-5======");
 
+firstPById.textContent = 'First Paragraph';
+secondPById.textContent = 'Second Paragraph';
+thirdPById.textContent = 'Third Paragraph';
 fourthPById.textContent = 'Fourth Paragraph';
+
+// We just need the fourth paragraph text for this exercise, I add text to all p for level 2 exercises
+
 console.log(fourthPById);
 
 // 6. Set id and class attribute for all the paragraphs using different attribute setting methods
@@ -96,3 +102,33 @@ console.log(fourthPById);
  *  
  *  console.log(allP);
 */
+
+
+// Exercise: Level 2
+
+// 1. Change style of each paragraph using JavaScript(eg. color, background, border, font-size, font-family)
+
+// I prefer doing the styles in a styles.css file
+
+firstPById.style.color = 'green';
+secondPById.style.background = 'blue';
+thirdPById.style.border = '2px dashed black';
+fourthPById.style.fontSize = '26px';
+fourthPById.style.fontFamily = "Helvetica";
+
+// 2. Select all paragraphs and loop through each elements and give the first and third paragraph a color of green, and the second and the fourth paragraph a red color
+
+let paragraphs = document.querySelectorAll('p');
+paragraphs.forEach((p, i) => {
+    // i is the index, even index is an odd paragraph and viceversa
+
+	if (i % 2 === 0) {
+		p.style.color = 'green';
+	} else {
+		p.style.color = 'red';
+	}
+});
+
+// 3. Set text content, id and class to each paragraph
+
+// We did all of this in exercises level 1
