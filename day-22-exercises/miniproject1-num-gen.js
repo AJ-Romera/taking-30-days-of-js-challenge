@@ -38,18 +38,13 @@ h3.style.textDecoration = 'underline';
 h3.style.fontWeight = '300';
 h3.style.marginTop = '2px';
 
-// p styles
-
-//p.style.textAlign = 'center';
-//p.style.textDecoration = 'underline';
-
 // div styles
 
 div.style.display = 'flex';
 div.style.flexWrap = 'wrap';
 div.style.justifyContent = 'center';
 div.style.margin = '0 auto';
-div.style.width = "1100px"
+div.style.width = '1100px'
 
 document.body.appendChild(div);
 
@@ -76,39 +71,39 @@ function primeFactorsTo(max)
 
 for (let i = 0; i <= 100; i++) {
     if (primeFactorsTo(100).includes(i)) {
-        let box = document.createElement("div");
+        let box = document.createElement('div');
         box.textContent = i;
         box.style.color = 'white';
         box.style.fontSize = '45px';
-        box.style.width = "170px";
-        box.style.height = "90px";
+        box.style.width = '170px';
+        box.style.height = '90px';
         box.style.backgroundColor = '#FD5E53';
-        box.style.margin = "3px";
-        box.style.lineHeight = "90px";
+        box.style.margin = '3px';
+        box.style.lineHeight = '90px';
         box.style.textAlign = 'center';
         div.appendChild(box);
     } else if (i % 2 === 0) {
-        let box = document.createElement("div");
+        let box = document.createElement('div');
         box.textContent = i;
         box.style.color = 'white';
         box.style.fontSize = '45px';
-        box.style.width = "170px";
-        box.style.height = "90px";
-        box.style.backgroundColor = "#21BF73";
-        box.style.margin = "3px";
-        box.style.lineHeight = "90px";
+        box.style.width = '170px';
+        box.style.height = '90px';
+        box.style.backgroundColor = '#21BF73';
+        box.style.margin = '3px';
+        box.style.lineHeight = '90px';
         box.style.textAlign = 'center';
         div.appendChild(box);
     } else {
-        let box = document.createElement("div");
+        let box = document.createElement('div');
         box.textContent = i;
         box.style.color = 'white';
         box.style.fontSize = '45px';
-        box.style.width = "170px";
-        box.style.height = "90px";
-        box.style.backgroundColor = "#FDDB3A";
-        box.style.margin = "3px";
-        box.style.lineHeight = "90px";
+        box.style.width = '170px';
+        box.style.height = '90px';
+        box.style.backgroundColor = '#FDDB3A';
+        box.style.margin = '3px';
+        box.style.lineHeight = '90px';
         box.style.textAlign = 'center';
         div.appendChild(box);
     }
