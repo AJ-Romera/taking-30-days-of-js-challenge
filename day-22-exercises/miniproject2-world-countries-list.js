@@ -1,6 +1,6 @@
 // Exercises: Level 2
 
-// Use the countries array to display all the countries. See the design.
+// 1. Use the countries array to display all the countries. See the design.
     // The design is here: https://raw.githubusercontent.com/Asabeneh/30-Days-Of-JavaScript/master/22_Day_Manipulating_DOM_object/22_day_starters/design/dom_min_project_countries_aray_day_2.2.png
 
 let body = document.querySelector('body');
