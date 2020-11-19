@@ -2,6 +2,14 @@
 
 // 1. Check the requirement of this project from both images(jpg and gif). All the data and CSS has been implemented using JavaScript only. The data is found on starter folder project_3. The drop down button has been created using details HTML element.
 
+/**
+ * First of all, this project is for practice purposes
+ * I did it as clean as possible
+ * but it´s not a real serious project so it can be imporved to be more professional
+ * I mean, some styles are unordered, icons can be improved, some colors shouldn´t be random
+ * for practice I dont want to spend as much time as working on a serious project.
+ */
+
 let body = document.querySelector('body');
 let div = document.querySelector('.wrapper');
 let h1 = document.createElement('h1');
@@ -147,12 +155,14 @@ let fullNameTitle = document.createElement('h1');
 let socialIconsP = document.createElement('p');
 let aboutMeParagraph = document.createElement('p');
 let titlesSkillsAndQualificationsSection = document.createElement('section');
+let keywordsSection = document.createElement('section');
 
 // Structure
 div.appendChild(fullNameTitle); // fullNameTitle child of div_2
 div.appendChild(socialIconsP);
 div.appendChild(aboutMeParagraph);
 div.appendChild(titlesSkillsAndQualificationsSection);
+div.appendChild(keywordsSection);
 
 // fullNameTitle
 fullNameTitle.innerHTML = `${asabenehChallenges2020.author.firstName} ${asabenehChallenges2020.author.lastName}`;
@@ -202,36 +212,146 @@ titlesSkillsAndQualificationsSection.appendChild(skills);
 titlesSkillsAndQualificationsSection.appendChild(qualifications);
 
 // Section content
+    // Titles
 let titlesArray = asabenehChallenges2020.author.titles;
-let titlesEmoticons = [];
+let titlesIcons = [
+    '<i class="fas fa-seedling fa-lg" style="color:green"></i>',
+    '<i class="fas fa-laptop-code fa-lg" style="color:rebeccapurple"></i>',
+    '<i class="fas fa-desktop fa-lg" style="color:grey"></i>',
+    '<i class="fas fa-plus-circle fa-lg" style="color:darkgreen"></i>',
+    '<i class="fas fa-user-edit fa-lg" style="color:red"></i>',
+];
 let titlesNames = [];
 
 for (let i = 0; i < titlesArray.length; i++) {
-    titlesEmoticons.push(titlesArray[i][0]);
     titlesNames.push(titlesArray[i][1]);
 }
-console.log(titlesEmoticons);
-console.log(titlesNames);
 
 let title = '';
-for (let i = 0; i < titlesEmoticons.length; i++) {
-    title = title + titlesEmoticons[i] + titlesNames[i] + '<br>';
+for (let i = 0; i < titlesIcons.length; i++) {
+    title = title + titlesIcons[i] + ' ' + titlesNames[i] + '<br>';
 }
 
+    // Skills
+let skillsArray = asabenehChallenges2020.author.skills;
+let skillsIcons = [
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+    '<i class="fas fa-check-circle fa-lg" style="color:green"></i>',
+];
+
+let skill = '';
+for (let i = 0; i < skillsArray.length; i++) {
+    skill = skill + skillsIcons[i] + ' ' + skillsArray[i] + '<br>';
+}
+
+    // Qualifications
+let qualificationsArray = asabenehChallenges2020.author.qualifications;
+let qualificationsIcons = [
+    '<i class="fas fa-graduation-cap fa-lg" style="color:midnightblue"></i>',
+    '<i class="fas fa-user-graduate fa-lg" style="color:blue"></i>',
+    '<i class="fas fa-user-graduate fa-lg" style="color:blue"></i>',
+    '<i class="fas fa-user-graduate fa-lg" style="color:blue"></i>',
+];
+
+let qualification = '';
+for (let i = 0; i < qualificationsArray.length; i++) {
+    qualification = qualification + qualificationsIcons[i] + ' ' + qualificationsArray[i] + '<br>';
+}
 
 titles.innerHTML = `<b>Titles</b><br>${title}`;
-skills.innerHTML = `<b>Titles</b><br>${title}`;
-qualifications.innerHTML = `<b>Titles</b><br>${title}`;
+skills.innerHTML = `<b>Skills</b><br>${skill}`;
+qualifications.innerHTML = `<b>Qualifications</b><br>${qualification}`;
 
-// Section styles
-
+// Titles... Section styles
 titlesSkillsAndQualificationsSection.style.display = 'flex';
 titlesSkillsAndQualificationsSection.style.justifyContent = 'space-between';
 titlesSkillsAndQualificationsSection.style.listStyle = "none";
 titlesSkillsAndQualificationsSection.style.margin = "5px auto";
 titlesSkillsAndQualificationsSection.style.padding = "2.5px 20px";
-titlesSkillsAndQualificationsSection.style.width = "70%";
+titlesSkillsAndQualificationsSection.style.width = "68%";
 titlesSkillsAndQualificationsSection.style.minHeight = "75px";
-titlesSkillsAndQualificationsSection.style.alignItems = 'center';
 titlesSkillsAndQualificationsSection.style.textAlign = 'left';
 titlesSkillsAndQualificationsSection.style.fontSize = '16px';
+titlesSkillsAndQualificationsSection.style.lineHeight = '35px';
+
+let titlesB = titlesSkillsAndQualificationsSection.querySelectorAll('b');
+for (i = 0; i < titlesB.length; i++) {
+    titlesB[i].style.fontSize = '20px';
+}
+
+// Keywords Section styles
+keywordsSection.style.display = 'flex';
+keywordsSection.style.justifyContent = 'space-between';
+keywordsSection.style.listStyle = "none";
+keywordsSection.style.margin = "5px auto";
+keywordsSection.style.padding = "2.5px 20px";
+keywordsSection.style.minHeight = "75px";
+keywordsSection.style.textAlign = 'center';
+keywordsSection.style.fontSize = '16px';
+keywordsSection.style.flexWrap = 'wrap';
+keywordsSection.style.width = "90%";
+keywordsSection.style.alignItems = 'center';
+keywordsSection.style.justifyContent = 'center';
+
+// Keywords title
+    // HTML structure
+let keywordsTitle = document.createElement('h3');
+keywordsSection.appendChild(keywordsTitle);
+
+    // content
+keywordsTitle.innerHTML = 'Keywords';
+
+    // style
+keywordsTitle.style.display = 'flex';
+keywordsTitle.style.flexWrap = 'nowrap';
+keywordsTitle.style.width = "65%";
+
+// Keywords div
+    // HTML structure
+let keywordsDiv = document.createElement('div');
+keywordsSection.appendChild(keywordsDiv);
+
+    // style
+keywordsDiv.style.display = 'flex';
+keywordsDiv.style.flexWrap = 'wrap';
+keywordsDiv.style.width = "70%";
+keywordsDiv.style.textAlign = 'center';
+keywordsDiv.style.alignItems = 'center';
+keywordsDiv.style.justifyContent = 'space-evenly';
+
+    // content
+let keywordsArray = asabenehChallenges2020.keywords;
+keywordsArray.forEach(key => {
+    // Create div for each box
+    let box = document.createElement('div');
+
+    // box styles
+    box.innerHTML = `<i># ${key}</i>`;
+    box.style.width = 'auto';
+    box.style.height = 'auto';
+    box.style.fontWeight = '600';
+    box.style.fontSize = '17px';
+    box.style.display = 'flex';
+    box.style.alignItems = 'center';
+    box.style.justifyContent = 'center';
+    box.style.textAlign = 'center';
+    box.style.margin = '5px';
+    box.style.padding = '7px 15px';
+    box.style.borderRadius = '20px';
+    box.style.boxShadow = '0px 0px 4px 1px rgba(125,125,125,0.2)';
+
+    // box background. *** It shouldn´t be random colors in a real project
+    let rand1 = Math.floor(Math.random() * 255);
+    let rand2 = Math.floor(Math.random() * 255);
+    let rand3 = Math.floor(Math.random() * 255);
+    let color = `rgb(${rand1},${rand2},${rand3})`;
+    box.style.backgroundColor = color;
+
+    // Box as a child of keywordsDiv
+    keywordsDiv.appendChild(box);
+});
+
